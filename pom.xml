@@ -81,9 +81,9 @@
             <version>3.2.5</version>
         </dependency>
         <dependency>
-        	<groupId>com.github.jsimone</groupId>
-        	<artifactId>webapp-runner</artifactId>
-        	<version>8.5.15.1</version>
+            <groupId>com.heroku</groupId>
+            <artifactId>webapp-runner-main</artifactId>
+            <version>9.0.38.0</version>
         </dependency>
         <dependency>
         	<groupId>log4j</groupId>
@@ -170,9 +170,9 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.github.jsimone</groupId>
+                                    <groupId>com.heroku</groupId>
                                     <artifactId>webapp-runner</artifactId>
-                                    <version>9.0.13.0</version>
+                                    <version>9.0.38.0</version>
                                     <destFileName>webapp-runner.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
