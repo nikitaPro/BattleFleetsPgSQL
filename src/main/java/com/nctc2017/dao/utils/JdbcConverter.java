@@ -1,10 +1,10 @@
 package com.nctc2017.dao.utils;
 
-import oracle.sql.NUMBER;
+//import oracle.sql.NUMBER;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.sql.SQLException;
+//import java.sql.SQLException;
 
 public final class JdbcConverter {
     public static enum DB {ORACLE, POSTGRESQL};
@@ -14,7 +14,8 @@ public final class JdbcConverter {
         if (value == null)
             return null;
         if (currentDB.equals(DB.ORACLE))
-            return toOracleNumber(value);
+            throw new IllegalStateException("Check your db choice.");
+            //return toOracleNumber(value);
         else if (currentDB.equals(DB.POSTGRESQL))
             return toPostgresqlNumeric(value);
         else
@@ -22,7 +23,7 @@ public final class JdbcConverter {
        
     }
     
-    private static NUMBER toOracleNumber(BigInteger value) {
+    /*private static NUMBER toOracleNumber(BigInteger value) {
         NUMBER numValue;
         try {
             numValue = new NUMBER(value);
@@ -30,7 +31,7 @@ public final class JdbcConverter {
             throw new RuntimeException(e.getErrorCode() + " error code. " + e.getMessage());
         }
         return numValue;
-    }
+    }*/
     
     private static BigDecimal toPostgresqlNumeric(BigInteger value) {
         BigDecimal numValue;

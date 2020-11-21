@@ -1,7 +1,7 @@
 package com.nctc2017.dao.utils;
 
 import com.nctc2017.constants.Query;
-import oracle.sql.NUMBER;
+//import oracle.sql.NUMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;

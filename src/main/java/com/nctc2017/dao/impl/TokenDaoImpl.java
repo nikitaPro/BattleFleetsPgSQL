@@ -7,7 +7,6 @@ import com.nctc2017.dao.TokenDao;
 import com.nctc2017.dao.utils.JdbcConverter;
 import com.nctc2017.dao.utils.QueryBuilder;
 import com.nctc2017.dao.utils.QueryExecutor;
-import oracle.jdbc.OracleTypes;
 import org.apache.jasper.tagplugins.jstl.core.If;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,7 +82,7 @@ public class TokenDaoImpl implements TokenDao {
                     new Object[]{JdbcConverter.toNumber(DatabaseObject.TOKEN_OBJTYPE_ID),
                             JdbcConverter.toNumber(DatabaseAttribute.VERIFICATION_TOKEN_TOKEN),
                             JdbcConverter.toNumber(DatabaseAttribute.VERIFICATION_TOKEN_EXPIRE_DATE), token},
-                    new int[]{OracleTypes.NUMERIC, OracleTypes.NUMERIC, OracleTypes.NUMERIC, OracleTypes.VARCHAR});
+                    new int[]{java.sql.Types.NUMERIC, java.sql.Types.NUMERIC, java.sql.Types.NUMERIC, java.sql.Types.VARCHAR});
 
             if (!result.next()) {
                 RuntimeException ex = new IllegalArgumentException("Invalid token = " + token);

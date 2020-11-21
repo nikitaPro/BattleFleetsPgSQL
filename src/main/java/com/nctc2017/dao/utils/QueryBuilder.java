@@ -1,7 +1,7 @@
 package com.nctc2017.dao.utils;
 
-import oracle.jdbc.OracleTypes;
-import oracle.sql.NUMBER;
+//import oracle.jdbc.OracleTypes;
+//import oracle.sql.NUMBER;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -18,9 +18,9 @@ public class QueryBuilder {
 
     private static final Logger logger = Logger.getLogger(QueryBuilder.class);
 
-    private static final SqlParameter NUMERIC_PARAM = new SqlParameter(OracleTypes.NUMERIC);
-    public static final SqlParameter VARCHAR_PARAM = new SqlParameter(OracleTypes.VARCHAR);
-    public static final SqlParameter NULL_PARAM = new SqlParameter(OracleTypes.NULL);
+    private static final SqlParameter NUMERIC_PARAM = new SqlParameter(java.sql.Types.NUMERIC);
+    public static final SqlParameter VARCHAR_PARAM = new SqlParameter(java.sql.Types.VARCHAR);
+    public static final SqlParameter NULL_PARAM = new SqlParameter(java.sql.Types.NULL);
 
     private static final String OBJECT_TYPE_ID = "objectTypeId";
     private static final String OBJECT_ID = "objectId";
