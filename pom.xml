@@ -17,9 +17,15 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.version>4.3.5.RELEASE</spring.version>
         <springsecuriry.version>4.2.2.RELEASE</springsecuriry.version>
+        <cglib.version>2.2.2</cglib.version>
     </properties>
 	
 	<repositories>
+		<repository>
+			<id>springsource-milestones</id>
+			<name>SpringSource Milestones Proxy</name>
+			<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
+		</repository>
         <repository>
             <id>central</id>
             <url>https://repo1.maven.org/maven2</url>
@@ -27,7 +33,6 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
-
         <repository>
             <id>codelds</id>
             <url>https://code.lds.org/nexus/content/groups/main-repo</url>
@@ -156,7 +161,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.3</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -181,8 +185,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
