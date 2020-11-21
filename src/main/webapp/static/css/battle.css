@@ -1,0 +1,351 @@
+html, body { height: 100%; width: 100%; margin: 0; }
+
+body.battle_view {
+	background:url("../images/travel/fog_sea.jpg");
+    height: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body {
+
+    background:url("../images/battle/battle_background.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+th > div.icon {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 25%;
+    padding-left: 35%;
+    display: inline;
+}
+
+td > button.button_pick {
+    width: 100%;
+}
+table#button_tab tr:nth-child(odd) > td {
+	padding-bottom: 5%
+}
+table#button_tab tr:nth-child(even) > td {
+	padding-top: 5%
+}
+button {
+    color: white;
+    font-weight: bold;
+}
+.button_pick:focus {outline:0;}
+input:focus {outline:0;}
+.button_pick, .button_exit {
+	border: none;
+    background: none;
+    cursor: pointer;
+    width: 20%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    overflow: visible;
+}
+.exit_button_block {
+	position: absolute;
+    width: 150px;
+    height: 50px;
+    right: 10px;
+    top: 10px;
+}
+#exit {
+	width: 100%;
+    height: 100%;
+}
+.icon_pick, .icon_pick_hover, .icon_pick_select, 
+.icon_fire, .icon_fire_select, .icon_escape,
+.icon_escape_select, .icon_surrender, .icon_surrender_select,
+.icon_boarding, .icon_boarding_select, .icon_payoff,
+.icon_payoff_select, .icon_exit, .icon_exit_select, 
+.icon_exit_disable, .icon_boarding_disable, .icon_fire_disable,
+.icon_payoff_disable, .icon_escape_disable, .icon_surrender_disable{
+    border: none;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: center;
+    width: 25%;
+    height: auto;
+    padding: 30%;
+}
+
+.icon_pick_select {
+	background-image:url("../images/general/button_pick.png");
+}
+
+.icon_pick {
+	background-image:url("../images/general/button_pick_reject.png");
+}
+
+.icon_pick_hover {
+	background-image:url("../images/general/button_pick_select.png");
+}
+
+.icon_fire {
+	background-image:url("../images/battle/icon_fire_reject.png");
+}
+.icon_fire_select {
+	background-image:url("../images/battle/icon_fire_select.png");
+}
+.icon_fire_disable {
+	background-image:url("../images/battle/icon_fire_disable.png");
+}
+.icon_escape {
+	background-image:url("../images/battle/icon_leave_reject.png");
+}
+.icon_escape_select {
+	background-image:url("../images/battle/icon_leave_select.png");
+}
+.icon_escape_disable {
+	background-image:url("../images/battle/icon_leave_disable.png");
+}
+.icon_surrender {
+	background-image:url("../images/battle/icon_surrender_reject.png");
+}
+.icon_surrender_select {
+	background-image:url("../images/battle/icon_surrender_select.png");
+}
+.icon_surrender_disable {
+	background-image:url("../images/battle/icon_surrender_disable.png");
+}
+.icon_boarding {
+	background-image:url("../images/battle/icon_boarding_reject.png");
+}
+.icon_boarding_select {
+	background-image:url("../images/battle/icon_boarding_select.png");
+}
+.icon_boarding_disable {
+	background-image:url("../images/battle/icon_boarding_disable.png");
+}
+.icon_payoff {
+	background-image:url("../images/battle/icon_payoff_reject.png");
+}
+.icon_payoff_select {
+	background-image:url("../images/battle/icon_payoff_select.png");
+}
+.icon_payoff_disable {
+	background-image:url("../images/battle/icon_payoff_disable.png");
+}
+.icon_exit {
+	background-image:url("../images/battle/icon_exit_reject.png");
+}
+.icon_exit_select {
+	background-image:url("../images/battle/icon_exit_select.png");
+}
+.icon_exit_disable {
+	background-image:url("../images/battle/icon_exit_disable.png");
+}
+
+.icon_cannonball {
+	background-image:url("../images/market/cannonball.png");
+}
+.icon_buckshot {
+	background-image:url("../images/market/buckshot.png");
+}
+.icon_chain {
+	background-image:url("../images/market/chain.png");
+}
+
+.icon_bombard {
+	background-image:url("../images/market/bombard.png");
+}
+.icon_mortar {
+	background-image:url("../images/market/mortar.png");
+}
+.icon_kulevrin {
+	background-image:url("../images/market/kulevrin.png");
+}
+
+h1.up_title {
+    text-align: center;
+    background-image: url(../images/battle/title_back.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    background-position-x: 60%;
+}
+
+.ship_accordion {
+    width: 100%;
+    height: 100%;
+}
+.ship_accordion_header {
+    width: 80%;
+}
+
+.ship_accordion_content {
+    width: 85%;  
+    padding: 4% 3% 12% !important;
+    display: block; 
+}
+
+.ship_panel {
+    position:relative;
+}
+
+.ship_img {
+    width: 35%;
+    float: left;
+    margin-left: 6%;
+    max-width: 50%;
+}
+.ship_info {
+    float:left;
+    font-size: 16pt;
+    max-width: 50%;
+}
+
+p {
+    margin: 2px;
+    padding: 0;
+}
+h3 {
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+}
+.enemy_style, .player_style {
+    line-height: 100%;
+    font-family: cursive;
+    font-size: 20px;
+    font-style: italic;
+    font-variant: small-caps;
+    font-weight: 700;
+}
+.enemy_style {
+    color: darkred;
+}
+.player_style {
+    color: darkgreen;
+}
+
+.player_side, .enemy_side {
+    width: 50%; height: 100%;
+} 
+.player_side {
+    float:right;
+}
+
+.enemy_side {
+    float:left;
+}
+
+.ammo_cannon {
+	display:block;
+	width: 100%;
+	height: auto;
+	float: left;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+tr th, tr td { 
+	width:25%; 
+	font-size: 1.8vw; 
+	height:100%;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
+}
+
+#ammo_tab {
+    padding: 1%;
+    padding-top: 3%;
+}
+#info_tab {
+    padding: 1%;
+}
+
+.player_ship, .enemy_ship {
+	
+	display:inline-block;
+	width: 33.3%;
+	position: fixed;
+	bottom: 5px;
+}
+
+.player_ship {
+    float:left;
+    margin-left: 33%;
+}
+
+.enemy_ship {
+    float:right;
+    margin-left: 33%;
+}
+
+.battle_info {
+	display:block;
+    float:left;
+	width: 100%;
+}
+
+.wait {
+	position: absolute;
+    left: 40%;
+    top: 30%;
+    font-size: 70pt;
+}
+
+#p_dec, #e_dec {
+	position: relative;
+}
+
+.dec_val {
+    font-size: 5vw;
+    font-weight: bolder;
+    border-radius: 0px 6vw 0px 6vw;
+	text-align: center;
+    width: 60%;
+    color: white;
+}
+#player_dec {
+    color: white;
+	background: linear-gradient(to bottom, #5b5b5b 0%,#000000 50%, #5b5b5b 100%);
+}
+#enemy_dec {
+    color: white;
+    background: linear-gradient(to bottom, #5b5b5b 0%,#000000 50%,  #5b5b5b 100%);
+}
+#p_health_dec, #e_health_dec, .health {
+	background: linear-gradient(to bottom, #dd0404 0%,#000c1c 50%, #dd0404 100%);
+}
+#p_crew_dec, #e_crew_dec, .crew {
+	background: linear-gradient(to bottom, #03aa14 0%,#000c1c 50%, #03aa14 100%);
+}
+#p_speed_dec, #e_speed_dec, .speed {
+    background: linear-gradient(to bottom, #3f97db 0%,#000c1c 50%, #3f97db 100%);
+}
+.speed, .crew, .health {
+	color: white;
+    border-radius: 0px 3vw 0px 3vw;
+}
+.anim_shot{
+	position: absolute;
+	width: 10%;
+	height: 10%;
+}
+
+.with_tooltip {
+	text-decoration: underline;
+}
+
+.helpButton {
+    width: auto;
+    height: auto;
+    padding: 2%;
+    top: auto;
+    bottom: 1%;
+    right: 5%;
+}

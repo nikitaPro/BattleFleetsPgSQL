@@ -1,0 +1,79 @@
+:root {
+    --font-family: "Roboto";
+    --color-primary: #338b8c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 14px;
+    background-size: 100%;
+    background: url(../images/splach_screen/splash_screen.jpg) no-repeat center;
+    background-size: cover;
+    height: 100vh
+}
+
+.ui-tabs .ui-tabs-nav li a {
+
+    display: block;
+    font-size: 21px;
+    color: white;
+    text-decoration:none;
+    padding-bottom:15px;
+    padding-top:-15px;
+    float: left;
+    text-align:center;
+    cursor:pointer;
+    transition:.5s ease;
+}
+input{
+    display: block;
+    width: 80%;
+    font-size: 20px;
+    padding: 10px;
+    font-family: var(--font-family);
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+button{
+    display: block;
+    min-height: 40px;
+    width: 80%;
+    font-size: 20px;
+    padding: 10px;
+    font-family: var(--font-family);
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+}
+
+#regisBtn:disabled{
+    color: #bbbcbf;
+}
+
+.logo{
+    background-image: url("/static/images/general/battle_fleet.png");
+    height: 305px;
+    width: 472px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.error{
+    font-size: 14px;
+    color: aqua;
+}
+
+.success {
+    font-size: 14px;
+    color: #beff8e;
+}

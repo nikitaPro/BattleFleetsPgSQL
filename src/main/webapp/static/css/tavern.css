@@ -1,0 +1,164 @@
+body, html {
+    height: 100%;
+}
+
+body {
+
+    background:url("../images/tavern/tavern.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+td.listOfShips{
+    border: 1px solid black;
+}
+img{
+    width:175px;
+}
+
+.panelTavern {
+    background-image:url("../images/general/panel_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 4px ridge black;
+    padding: 1%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.8),
+    0px -5px 35px rgba(255,255,255,0.3);
+    font: bold;
+    font-size: 32pt;
+    color: white;
+    font-weight:bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background:url("../images/general/panel_background.jpg");
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 650px;
+    height: 250px;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    margin-top: -150px;
+    margin-left: -150px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.shipContainer {
+    /*margin-top: 10%;*/
+    width:56vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.tableClass1 {
+    background-image:url("../images/general/panel_background.jpg");
+    color: white;
+    font-size: 17px;
+    font-family: tempus sans itc;
+    font-weight: 900;
+    text-align: left;
+    border: 6px double black;
+    width: 183.33px;
+}
+
+.tableClass2 {
+    background-image:url("../images/general/panel_background.jpg");
+    color: white;
+    font-size: 17px;
+    font-family: tempus sans itc;
+    font-weight: 900;
+    text-align: left;
+    border: 6px double black;
+    width: 275px;
+}
+
+.tableClass3 {
+    background-image:url("../images/general/panel_background.jpg");
+    color: white;
+    font-size: 17px;
+    font-family: tempus sans itc;
+    font-weight: 900;
+    text-align: left;
+    border: 6px double black;
+}
+
+.buttonBack{
+    background-image:url("../images/general/panel_background.jpg");
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    font-size: 100%;
+    font-family: "Lucida Bright", Georgia, serif;
+    border: 2px solid black;
+
+}
+
+.buttonBack:hover,
+.buttonBack:focus{
+    color:black;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+#info {
+	font-size:40px;
+	height:10px;
+	margin-top:10px; 
+	font-family: tempus sans itc; 
+	color:white
+}
+
+.icon_mute, .icon_sound {
+    background-color: transparent;
+    border: none;
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: center;
+    padding: 2%;
+}
+
+.icon_sound {
+    background-image: url("../images/general/sound.png");
+}
+
+.icon_mute {
+    background-image: url("../images/general/mute.png");
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}

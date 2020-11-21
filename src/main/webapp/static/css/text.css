@@ -1,0 +1,61 @@
+.timer {
+	color: rgba(0,0,0,0.8);
+	text-shadow: 2px 8px 6px rgba(0,0,0,0.8),
+                 0px -5px 35px rgba(255,255,255,0.3);
+	font-weight: bold;
+	font-size: 32pt;
+	font-family: cursive;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 700;
+	line-height: 50%;
+	left: 0%;
+	bottom: 0%;
+}
+
+.titleText {
+	background-image:url("../images/general/panel_background.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+    border: 4px ridge black; 
+    padding: 1%;
+    width: 50%;
+    
+    text-align: center;
+    color: white;
+    font-family: "Lucida Bright", Georgia, serif;
+	font-size: 48px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 100%;
+}
+
+.price {
+    font-size: 100%;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.8),
+                     0px -5px 35px rgba(255,255,255,0.3);
+    color: white;
+    font-family: tempus sans itc;
+}
+
+.smallTitle{
+    background-image:url("../images/general/panel_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 6px double black;
+
+    text-align: center;
+    color: white;
+    font-family: "Lucida Bright", Georgia, serif;
+    font-size: 26px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 100%;
+	margin: 0;
+	padding: 1%;
+}

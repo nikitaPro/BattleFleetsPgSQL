@@ -1,0 +1,32 @@
+body, html {
+    height: 100%;
+}
+
+body {
+
+    background-image:url("../images/city/city_background.jpg");
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+.level{
+    background-image: url(../images/general/panel_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    border: 2px solid black;
+    top: 8px;
+    left: 16px;
+    color: white;
+    font-size: 18px;
+    font-family: "Lucida Bright", Georgia, serif;
+    padding: 5px 20px;
+    text-decoration: none;
+
+}
+

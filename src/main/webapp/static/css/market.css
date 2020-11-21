@@ -1,0 +1,138 @@
+body, html {
+    height: 100%;
+}
+
+body {
+
+    background:url("../images/market/market_background.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 > a {
+	color: white;
+    text-decoration: underline;
+}
+
+.panels{
+    background:url("../images/general/panel_background.jpg");
+    height: 80%;
+    overflow: auto;
+}
+
+td, th{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+ul>li>a{
+    background:url("../images/general/button_background1.jpg");
+    color:white;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus{
+    color: #d18a4d;
+}
+
+footer{
+    text-align: center !important;
+}
+
+.buyButton,
+.saleButton{
+    background-color: #7a4f1e;
+    color:white;
+}
+
+.buyRow,
+.saleRow{
+    cursor: pointer;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-content{
+    background:url("../images/general/panel_background.jpg");
+}
+
+.modalText{
+    color:white;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.close{
+    font-family:Arial;
+    color:white;
+    opacity: 0.7;
+}
+
+.modal-header {
+    cursor: move;
+}
+
+#messageSale,
+#messageBuy{
+    font-family: sans-serif, Helvetica;
+    font-size: 18px;
+    color: white;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #150f0f;
+}
+
+#modalSaleQuantity,
+#modalQuantity{
+    display: block;
+    margin : 0 auto;
+}
+
+#toStock:hover,
+#toStock:focus{
+    color: #d18a4d;
+}
+footer {
+	position: relative;
+	transform: translate(-50%);
+    left: 50%;
+    bottom: 50%;
+}
+#footer {
+	position: absolute;
+    background-color: rgba(0,0,0,0.7);
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    bottom: 0;
+    z-index: -1;
+}
+
+.icon_sound{
+    top: 8px;
+    right: 30px;
+}
+

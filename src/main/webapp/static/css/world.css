@@ -1,0 +1,91 @@
+body, html {
+    height: 100%;
+}
+
+body {
+	position: relative;
+    background-image:url("../images/world/map_background_2.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.transparent75 {
+    filter: alpha(Opacity=80); /* IE */
+    opacity: 0.80;  
+}
+
+@keyframes map_anim {
+    from {filter: alpha(Opacity=80); opacity: 0.80;}
+    to {filter: alpha(Opacity=100); opacity: 1.0;}
+}
+
+.map {
+	animation-name: map_anim;
+    animation-duration: 8s;
+    animation-fill-mode: forwards;
+}
+
+.map {
+	position: relative; 
+	padding: 10px; 
+	border: 1px solid #000; 
+	background-image: url("../images/world/map.png");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 4px ridge black;
+    padding: 5%;
+    border-spacing: 10%;
+    width: 900px; height: 574px;
+    display: block;
+    margin: auto;
+}
+
+.cityTitle {
+	line-height: 100%;
+	font-family: cursive;
+	font-size: 20px;
+	font-style: italic;
+	font-variant: small-caps;
+	font-weight: 700;
+	position: absolute; 
+	left: 0px; 
+	top: 50%;
+	width: 100%;
+}
+
+.city > img, .city > p {
+	width: 0%; height: 0%; opacity: 0;
+}
+
+.city {
+	cursor: pointer;
+	position: absolute; 
+}
+
+#city1 {
+    left: 44%;
+    top: 30%;
+}
+
+#city2 {
+    left: 20%;
+    top: 60%;
+}
+
+#city3 { 
+    left: 78%;
+    top: 74%;
+}
+
+#city4 {
+    left: 20%;
+    top: 30%;
+}
+
+#city5 {
+    left: 48%;
+    top: 48%;
+}
