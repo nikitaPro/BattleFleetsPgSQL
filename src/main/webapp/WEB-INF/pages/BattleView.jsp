@@ -38,7 +38,7 @@
             <p id = "p_crew_dec" class = "dec_val"></p>
             <p id = "p_speed_dec" class = "dec_val"></p>
         </div>
-        <img alt="5" src="static/images/ships/player_ship2.png" height="60%">
+        <img alt="5" src="static/images/ships/player_ship2.png" style="width: 60%; height: auto;">
     </div>
     <div style="display: inline-block; width: 33.3%;">
         <div class="battle_info" align="center">
@@ -154,7 +154,7 @@
             <p id = "e_crew_dec" class = "dec_val"></p>
             <p id = "e_speed_dec" class = "dec_val"></p>
         </div>
-        <img alt="5" src="static/images/ships/enemy_ship2.png" height="60%">
+        <img alt="5" src="static/images/ships/enemy_ship2.png" style="width: 60%; height: auto;">
     </div>
     
     <div class="wait" hidden="true">Wait for opponent...</div>

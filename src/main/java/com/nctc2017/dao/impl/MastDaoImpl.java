@@ -65,14 +65,14 @@ public class MastDaoImpl implements MastDao {
     @Override
     public BigInteger createNewMast(BigInteger mastTemplateId, BigInteger containerOwnerId) {
         BigInteger newId = queryExecutor.getNextval();
-        Mast templ = findMastTemplate(mastTemplateId);
+        Mast template = findMastTemplate(mastTemplateId);
 
         PreparedStatementCreator psc = QueryBuilder
                 .insert(DatabaseObject.MAST_OBJTYPE_ID, newId)
                 .setParentId(containerOwnerId)
                 .setSourceObjId(mastTemplateId)
                 .setAttribute(DatabaseAttribute.ATTR_CURR_MAST_SPEED_ID,
-                        String.valueOf(findMastTemplate(mastTemplateId).getMaxSpeed()))
+                        String.valueOf(template.getMaxSpeed()))
                 .build();
         jdbcTemplate.update(psc);
         return newId;
@@ -84,7 +84,8 @@ public class MastDaoImpl implements MastDao {
         int numberOfDelRow = 0;
         try {
             numberOfDelRow = jdbcTemplate.update(Query.DELETE_OBJECT,
-                    new Object[]{mastId.longValueExact(), DatabaseObject.MAST_OBJTYPE_ID.longValueExact()});
+                    new Object[]{JdbcConverter.toNumber(mastId), 
+                            JdbcConverter.toNumber(DatabaseObject.MAST_OBJTYPE_ID)});
         } catch (ArithmeticException e) {
             log.log(Level.ERROR, "Arithmetical exception.Can not delete, id is to big: ", e);
             throw e;

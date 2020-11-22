@@ -14,7 +14,6 @@ import com.nctc2017.dao.utils.JdbcConverter;
 import com.nctc2017.dao.utils.QueryBuilder;
 import com.nctc2017.dao.utils.QueryExecutor;
 
-import com.nctc2017.services.ShipService;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,22 +21,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.constraints.NotNull;
 
-import static java.lang.Integer.parseInt;
 
 @Repository
 @Qualifier("playerDao")
@@ -83,7 +74,7 @@ public class PlayerDaoImpl implements PlayerDao{
     @Override
     public void updateLogin(@NotNull BigInteger playerId,@NotNull String login) {
             findPlayerById(playerId);
-            jdbcTemplate.update("UPDATE OBJECTS SET NAME =? WHERE OBJECT_ID=?", login, playerId.longValueExact());
+            jdbcTemplate.update("UPDATE OBJECTS SET NAME =? WHERE OBJECT_ID=?", login, JdbcConverter.toNumber(playerId));
         PreparedStatementCreator psc = QueryBuilder.updateAttributeValue(playerId)
                 .setAttribute(DatabaseAttribute.LOGIN_ATR_ID, login)
                 .build();
@@ -141,9 +132,6 @@ public class PlayerDaoImpl implements PlayerDao{
                     .setAttribute(DatabaseAttribute.PASSIVE_INCOME_ATR_ID, passiveIncome)
                     .build();
             jdbcTemplate.update(psc);
-
-
-
     }
 
     @Override
@@ -152,12 +140,10 @@ public class PlayerDaoImpl implements PlayerDao{
                     .setAttribute(DatabaseAttribute.MAX_SHIPS_ATR_ID, maxShips)
                     .build();
             jdbcTemplate.update(psc);
-
     }
 
     @Override
     public Player findPlayerById(@NotNull BigInteger playerId) {
-
         Player player = queryExecutor.findEntity(playerId,DatabaseObject.PLAYER_OBJTYPE_ID,
                 new EntityExtractor<>(playerId, new PlayerVisitor()));
         if (player == null){
@@ -256,8 +242,8 @@ public class PlayerDaoImpl implements PlayerDao{
     public BigInteger getPlayerCity(@NotNull BigInteger playerId) {
         try {
             return jdbcTemplate.queryForObject("SELECT PARENT_ID FROM OBJECTS WHERE OBJECT_ID=? AND OBJECT_TYPE_ID=?",
-                    new Object[]{playerId.longValueExact(),
-                    DatabaseObject.PLAYER_OBJTYPE_ID.longValueExact()}, BigInteger.class);
+                    new Object[]{JdbcConverter.toNumber(playerId),
+                            JdbcConverter.toNumber(DatabaseObject.PLAYER_OBJTYPE_ID)}, BigInteger.class);
         } catch (EmptyResultDataAccessException e) {
             RuntimeException ex = new IllegalArgumentException("Invalid playerId = " + playerId, e);
             log.error("PlayerDAO Exception while getting player city.", ex);
@@ -301,15 +287,15 @@ public class PlayerDaoImpl implements PlayerDao{
         findPlayerById(playerId);
         shipDao.findShip(shipId);
         jdbcTemplate.update("UPDATE OBJECTS SET PARENT_ID=? WHERE OBJECT_ID=? AND PARENT_ID=?",
-                null, shipId.longValueExact(), playerId.longValueExact());
+                null, JdbcConverter.toNumber(shipId), JdbcConverter.toNumber(playerId));
     }
 
     @Override
     public List<BigInteger> findAllShip(@NotNull BigInteger playerId) {
         findPlayerById(playerId);
         List<BigInteger> ships = jdbcTemplate.queryForList("SELECT OBJECT_ID FROM OBJECTS WHERE PARENT_ID=? AND OBJECT_TYPE_ID=?",
-                BigInteger.class, playerId.longValueExact(),
-                DatabaseObject.SHIP_OBJTYPE_ID.longValueExact());
+                BigInteger.class, JdbcConverter.toNumber(playerId),
+                JdbcConverter.toNumber(DatabaseObject.SHIP_OBJTYPE_ID));
         return ships;
     }
     

@@ -69,8 +69,8 @@ public class ExecutorDaoImpl implements ExecutorDao {
 
         try {
             jdbcTemplate.queryForObject(Query.getCallFunctionQuery(CALCULATE_DAMAGE_FUNCTION_NAME, 5),  
-                    new Object[]{ arrInStr.toString(), playerShipId, 
-                            idEnemyShip, ammoCannon.length, dist}, Integer.class);
+                    new Object[]{ arrInStr, JdbcConverter.toNumber(playerShipId), 
+                            JdbcConverter.toNumber(idEnemyShip), ammoCannon.length, dist}, Integer.class);
             //call.execute(in);
         } catch (UncategorizedSQLException e) {
             LOG.error("Mistake on client side, may be incorrect ratio of ammunition to cannons "
@@ -91,7 +91,7 @@ public class ExecutorDaoImpl implements ExecutorDao {
         /*SimpleJdbcCall call = new SimpleJdbcCall(jdbcTemplate).withFunctionName(MOVE_CARGO_TO_FUNCTION_NAME);
         String result = call.executeFunction(String.class, cargoId, destinationId, quantity);*/
         String result=jdbcTemplate.queryForObject(Query.getCallFunctionQuery(MOVE_CARGO_TO_FUNCTION_NAME, 3), String.class, 
-                new Object[] {cargoId, destinationId, quantity});
+                new Object[] {JdbcConverter.toNumber(cargoId), JdbcConverter.toNumber(destinationId), quantity});
         if(result.endsWith("successfully!")) return result;
         else {
             IllegalArgumentException e = new IllegalArgumentException(result);
@@ -106,7 +106,7 @@ public class ExecutorDaoImpl implements ExecutorDao {
             /*SimpleJdbcCall call = new SimpleJdbcCall(jdbcTemplate).withFunctionName(BOARDING_OR_SURRENDER_RESULT_FUNCTION_NAME);
             String result = call.executeFunction(String.class, shipWinnerId, shipLoserId);*/
             String result=jdbcTemplate.queryForObject(Query.getCallFunctionQuery(BOARDING_OR_SURRENDER_RESULT_FUNCTION_NAME, 2), String.class, 
-                    new Object[] {shipWinnerId, shipLoserId});
+                    new Object[] {JdbcConverter.toNumber(shipWinnerId), JdbcConverter.toNumber(shipLoserId)});
             return result;
         } catch (UncategorizedSQLException e) {
             LOG.error("Mistake on client side, may be you are trying to transfer goods not between ships", e);
@@ -120,7 +120,7 @@ public class ExecutorDaoImpl implements ExecutorDao {
             /*SimpleJdbcCall call = new SimpleJdbcCall(jdbcTemplate).withFunctionName(DESTROYING_RESULT_FUNCTION_NAME);
             String result = call.executeFunction(String.class, shipWinnerId, shipLoserId);*/
             String result=jdbcTemplate.queryForObject(Query.getCallFunctionQuery(DESTROYING_RESULT_FUNCTION_NAME, 2), String.class, 
-                    new Object[] {shipWinnerId, shipLoserId});
+                    new Object[] {JdbcConverter.toNumber(shipWinnerId), JdbcConverter.toNumber(shipLoserId)});
             return result;
         } catch (UncategorizedSQLException e) {
             LOG.error("may be you are trying to transfer goods not between ships source ship: " + shipWinnerId + " target: " + shipLoserId, e);
