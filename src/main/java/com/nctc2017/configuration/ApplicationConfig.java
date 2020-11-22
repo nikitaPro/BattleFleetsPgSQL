@@ -5,6 +5,7 @@ import com.nctc2017.services.*;
 import com.nctc2017.services.utils.BattleManager;
 
 import org.apache.log4j.Logger;
+import org.postgresql.ds.PGPoolingDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
@@ -80,11 +81,18 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter {
         } catch (ClassNotFoundException e) {
             LOG.error("org.postgresql.Driver not found", e);
         }
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        PGPoolingDataSource dataSource = new PGPoolingDataSource();
+        dataSource.setDataSourceName("A Data Source");
+        dataSource.setServerName(env.getRequiredProperty("jdbc.server_address"));
+        dataSource.setDatabaseName(env.getRequiredProperty("jdbc.db_name"));
+        dataSource.setUser(env.getRequiredProperty("jdbc.username"));
+        dataSource.setPassword(env.getRequiredProperty("jdbc.password"));
+        dataSource.setMaxConnections(0);
+        /*DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(env.getRequiredProperty("jdbc.url"));
         dataSource.setUsername(env.getRequiredProperty("jdbc.username"));
-        dataSource.setPassword(env.getRequiredProperty("jdbc.password"));
+        dataSource.setPassword(env.getRequiredProperty("jdbc.password"));*/
         return dataSource;
     }
 
