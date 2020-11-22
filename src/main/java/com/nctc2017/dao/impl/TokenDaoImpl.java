@@ -7,7 +7,6 @@ import com.nctc2017.dao.TokenDao;
 import com.nctc2017.dao.utils.JdbcConverter;
 import com.nctc2017.dao.utils.QueryBuilder;
 import com.nctc2017.dao.utils.QueryExecutor;
-import org.apache.jasper.tagplugins.jstl.core.If;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

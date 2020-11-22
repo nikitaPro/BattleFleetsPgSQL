@@ -17,15 +17,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.version>4.3.5.RELEASE</spring.version>
         <springsecuriry.version>4.2.2.RELEASE</springsecuriry.version>
-        <cglib.version>2.2.2</cglib.version>
     </properties>
 	
 	<repositories>
-		<repository>
-			<id>springsource-milestones</id>
-			<name>SpringSource Milestones Proxy</name>
-			<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
-		</repository>
         <repository>
             <id>central</id>
             <url>https://repo1.maven.org/maven2</url>
@@ -33,10 +27,7 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
-        <repository>
-            <id>codelds</id>
-            <url>https://code.lds.org/nexus/content/groups/main-repo</url>
-        </repository>
+
     </repositories>
 
 	<dependencies>
@@ -60,14 +51,11 @@
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.3</version>
-            <scope>provided</scope>
+		<dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
-        
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -84,9 +72,10 @@
             <version>3.2.5</version>
         </dependency>
         <dependency>
-            <groupId>com.heroku</groupId>
-            <artifactId>webapp-runner-main</artifactId>
-            <version>9.0.30.0</version>
+        	<groupId>com.github.jsimone</groupId>
+        	<artifactId>webapp-runner</artifactId>
+        	<version>8.5.15.1</version>
+        	<scope>provided</scope>
         </dependency>
         <dependency>
         	<groupId>log4j</groupId>
@@ -104,12 +93,16 @@
         	<artifactId>mockito-core</artifactId>
         	<version>2.9.0</version>
         </dependency>
-
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-oracle</artifactId>
+		    <version>1.0.0.RELEASE</version>
+		</dependency>
         <!-- Add Spring Security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>${springsecuriry.version}</version>
+            <version>4.2.3.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -145,11 +138,7 @@
         	<groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.2.6</version>
-        </dependency>
-        <dependency>
-        	<groupId>org.springframework.data</groupId>
-        	<artifactId>spring-data-oracle</artifactId>
-        	<version>1.2.1.RELEASE</version>
+            <scope>runtime</scope>
         </dependency>
 	</dependencies>
 
@@ -165,6 +154,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.3</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -174,9 +164,9 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.heroku</groupId>
+                                    <groupId>com.github.jsimone</groupId>
                                     <artifactId>webapp-runner</artifactId>
-                                    <version>9.0.30.0</version>
+                                    <version>9.0.13.0</version>
                                     <destFileName>webapp-runner.jar</destFileName>
                                 </artifactItem>
                             </artifactItems>
@@ -189,8 +179,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
